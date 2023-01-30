@@ -267,32 +267,6 @@
 			"response": []
 		},
 		{
-			"name": "2.11 InputObjectType for DTOs.",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "graphql",
-					"graphql": {
-						"query": "mutation ($input: createUserDto!) { \r\n    createUser (createUserDto: $input) \r\n    { \r\n        id,\r\n         firstName,\r\n          lastName \r\n          } }\r\n",
-						"variables": "{\r\n    \"input\": {\r\n      \"firstName\": \"John\",\r\n      \"lastName\": \"Someone\",\r\n      \"email\": \"johnsomeone@gmail.com\"\r\n    }\r\n  }"
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/graphql",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"graphql"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "2.12 Update user.",
 			"request": {
 				"method": "POST",
@@ -423,15 +397,15 @@
 			"response": []
 		},
 		{
-			"name": "2.17 InputObjectType for DTOs. Copy",
+			"name": "4. Limit the complexity of the graphql queries by their depth with graphql-depth-limit package.",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation ($input: createUserDto!) { \r\n    createUser (createUserDto: $input) \r\n    { \r\n        id,\r\n         firstName,\r\n          lastName \r\n          } }\r\n",
-						"variables": "{\r\n    \"input\": {\r\n      \"firstName\": \"John\",\r\n      \"lastName\": \"Someone\",\r\n      \"email\": \"johnsomeone@gmail.com\"\r\n    }\r\n  }"
+						"query": "query {\r\n   getUsers {\r\n      userSubscribedTo {\r\n         userSubscribedTo {\r\n            userSubscribedTo {\r\n               userSubscribedTo {\r\n                  userSubscribedTo {\r\n                     userSubscribedTo {\r\n                        id\r\n                        firstName\r\n                     }\r\n                  }\r\n               }\r\n            }\r\n         }\r\n      }\r\n   }\r\n}",
+						"variables": ""
 					}
 				},
 				"url": {
